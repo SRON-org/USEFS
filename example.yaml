@@ -1,11 +1,11 @@
 version: 1 # USEFS 架构版本号，根据 README 文件中的版本号进行指定。
-items:
-  - name: 七点起床去买菜
-    short_name: 菜
-    from_date: 20250101
-    from_time: 0700
-    duration: 7200
-    enable: every_day
+items: #以单个日程形式存在的日程数据
+  - name: 七点起床去买菜 #日程名称（必填）
+    short_name: 菜 #日程的简短名称（可选）
+    from_date: 20250101 #日程的开始日期（必填，格式为"年月日"，如 20250101 为 2025年1月1日）
+    from_time: 0700 #日程的开始时间（必填，格式为24小时制"时分"，如 0700 为 早上7点整，即7点0分）
+    duration: 7200 #日程的持续时间（可选，以秒为单位）
+    enable: every_day #日程的启用日期
     cycle: every
     importance: 1
     note: "买白花菜"
