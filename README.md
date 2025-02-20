@@ -1,9 +1,9 @@
 
 <div align="center">
 
-# USEF 架构
+# USEF 架构 1
 
-The Universal Schedule Sheet Exchange Format Schema
+The Universal Schedule Sheet Exchange Format Schema V1
 
 通用日程计划表交换格式架构
 
