@@ -34,7 +34,7 @@ USEFS 是一个由 [思锐工作室](https://github.com/SRInternet-Studio) 主�
 
 ## 示例
 
-见 [example.yaml](./example.yaml)。
+见 [example.yaml（包含注解）](./example.yaml)、[example.json](./example.json)、[example.toml](./example.toml)、
 
 ## 开放
 
