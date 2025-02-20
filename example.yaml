@@ -1,40 +1,46 @@
 version: 1 # USEFS 架构版本号，根据 README 文件中的版本号进行指定
-items: #以单个日程形式存在的日程数据
-  - name: 七点起床去买菜 #日程名称（必填）
-    short_name: 菜 #日程的简短名称（可选）
-    from_date: 20250101 #日程的开始日期（必填，格式为"年月日"，如 20250101 为 2025年1月1日，并且用于计算单、双周）
-    from_time: 0700 #日程的开始时间（必填，格式为24小时制"时分"，如 0700 为 早上7点整，即7点0分）
-    duration: 7200 #日程的持续时间（可选，以秒为单位）
-    enable: every_day #日程的启用日期，以一个星期为界（"once" 表示仅启用一次，"every_day" 表示每天启用，"Monday" 表示仅周一启用，"Monday, Friday" 表示周一和周五启用，以此类推）
-    cycle: every #日程的循环周期（"every" 表示每周启用，"odd" 表示仅单周启用，"even" 表示仅双周启用
-    importance: 1 #日程的优先级，为自然数，0为最高优先级，数字向上递增则优先级依次递减
-    note: "买白花菜" #日程的备注信息
+items: # 以单个日程形式存在的日程数据
+  - name: 七点起床去买菜 # 日程名称（必填）
+    short_name: 菜 # 日程的简短名称（可选）
+    from_date: 2025-01-01 # 日程的开始日期（必填，ISO 8601 格式，例如 YYYY-MM-DD 或 YYYY-MM-DDTHH:mm:ssZ，Z 代表时区）
+    from_time: 07:00 # 日程的开始时间（必填，格式为 24 小时制 "HH:mm"，如 07:00 为 早上 7 点整，即 7 点 0 分）
+    duration: 2h # 日程的持续时间（可选，支持 "s"（秒）、"m"（分钟）、"h"（小时）、"d"（天）为单位，例如 7200s, 120m, 2h, 0.5d）
+    enable: every_day # 日程的启用规则（"once" 表示仅启用一次，"every_day" 表示每天启用，"Monday" 表示仅周一启用，"Monday, Friday" 表示周一和周五启用，以此类推，支持日期范围 "YYYY-MM-DD/YYYY-MM-DD" 或特定日期列表 ["YYYY-MM-DD", "YYYY-MM-DD"]）
+    cycle: every # 日程的循环周期（"every" 表示每周启用，"odd" 表示仅单周启用，"even" 表示仅双周启用，支持 RRULE 规则表达式，例如 "RRULE:FREQ=MONTHLY;BYMONTHDAY=15"）
+    importance: 1 # 日程的优先级，为自然数，0 为最高优先级，数字向上递增则优先级依次递减
+    note: "买白花菜" # 日程的备注信息
+    tags: ["生活", "购物"] # 日程的标签（可选，用于分类和搜索）
+    properties: # 自定义属性（可选，用于扩展信息）
+      location: "菜市场"
   - name: 返还图书
     short_name: 还书
-    from_date: 20250110
-    from_time: 0900
+    from_date: 2025-01-10
+    from_time: 09:00
     enable: once
     cycle: every
     importance: 2
+    tags: ["学习", "图书馆"]
 
-collections: #以一整个集合形式存在的日程数据，可以存放课程表等信息
-  - collection_name: 课表-周一 #集合的名称（必填）
-    enable: Monday
-    cycle: every
-    importance: 1
-    content:
+collections: # 以一整个集合形式存在的日程数据，可以存放课程表等信息
+  - collection_name: 课表-周一 # 集合的名称（必填）
+    enable: Monday # 集合的启用规则 (同 items.enable)
+    cycle: every # 集合的循环周期 (同 items.cycle)
+    importance: 1 # 集合的优先级 (同 items.importance)
+    content: # 集合中的日程项
       - name: 化学
         short_name: 化
-        from_date: 11450114
-        from_time: 0700
-        duration: 2400
+        from_time: 07:00
+        duration: 40m
         note: "授课教师: 王利威"
+        tags: ["学习", "化学", "课程"]
       - name: 数学
         short_name: 数
-        from_date: 19190101
-        from_time: 0750
-        duration: 2400
+        from_time: 07:50
+        duration: 40m
         note: "授课教师: 易幻珑"
+        tags: ["学习", "数学", "课程"]
+        properties:
+          room: "302" # 教室
   - collection_name: 课表-周二（单）
     enable: Tuesday
     cycle: odd
@@ -42,13 +48,23 @@ collections: #以一整个集合形式存在的日程数据，可以存放课程
     content:
       - name: 语文
         short_name: 语
-        from_date: 11450114
-        from_time: 0700
-        duration: 2400
+        from_time: 07:00
+        duration: 40m
         note: "授课教师: 徐薇雨"
+        tags: ["学习", "语文", "课程"]
       - name: 数学
         short_name: 数
-        from_date: 19190101
-        from_time: 0750
-        duration: 2400
+        from_time: 07:50
+        duration: 40m
         note: "授课教师: 严梓悦"
+        tags: ["学习", "数学", "课程"]
+        properties:
+          room: "302"
+      - name: 英语
+        short_name: 英
+        from_date: 2025-02-18 # 可以覆盖集合的日期
+        from_time: 08:40
+        duration: 40m
+        note: "授课教师: 欧阳娜娜"
+        tags: ["学习", "英语", "课程"]
+        enable: once # 可以覆盖集合的启用规则
