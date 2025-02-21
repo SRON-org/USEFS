@@ -12,7 +12,7 @@ The Universal Schedule Sheet Exchange Format Schema V1
 
 ## 简介
 
-USEFS 是一个由 [思锐工作室](https://github.com/SRInternet-Studio) 主办，USEF 组织研发的一种**适用于日程表、提醒事项、辅助计划和电子课程表等时间管理类产品**的交换格式，最终目的是统一此类产品的市场生态，旨在使用户能在不同的同类产品中快速迁移个人配置，提升使用效率。
+USEFS 是一个由 [思锐工作室](https://github.com/SRInternet-Studio) 主办，SRON 团队研发的一种**适用于日程表、提醒事项、辅助计划和电子课程表等时间管理类产品**的交换格式，最终目的是统一此类产品的市场生态，旨在使用户能在不同的同类产品中快速迁移个人配置，提升使用效率。
 
 ## 特点
 
