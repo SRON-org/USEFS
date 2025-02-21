@@ -1,5 +1,6 @@
-
 <div align="center">
+
+<image src="https://github.com/user-attachments/assets/9e91bfd4-4448-4668-bede-6eafb0b42888" height="86"/>
 
 # USEF 架构 1
 
