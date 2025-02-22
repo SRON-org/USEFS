@@ -39,7 +39,7 @@ USEFS.Sharp（在建）：在 .NET Framework 和 C Language 上提供对使用 U
 
 ## 代码补全
 
-你可以通过引入 [Schema 文件（在建）]()，
+你可以通过引入 [Schema 文件](https://raw.githubusercontent.com/SRON-org/USEFS/refs/heads/main/USEFS.Schema.json)，
 并进行以下配置来启用 Yaml 代码的自动补全。
 
 - [VS Code](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
