@@ -31,9 +31,9 @@ USEFS 是一个由 [思锐工作室](https://github.com/SRInternet-Studio) 主�
 
 ## 生态
 
-[USEFS_Python](https://github.com/SRON-org/USEFS_Python)：在 Python 上提供对使用 USEF 架构 格式的文件的进行访问、修改、增添、删除等高级管理功能。
+[**USEFS_Python**](https://github.com/SRON-org/USEFS_Python)：在 Python 上提供对使用 USEF 架构 格式的文件的进行访问、修改、增添、删除等高级管理功能。
 
-[USEFS_ICS](https://github.com/SRON-org/USEFS_ICS)：将使用 USEFS（通用日程计划表交换格式架构） 的 YAML、TOML 或 JSON 格式文件转换为标准 iCalendar (.ics) 格式的日历文件
+[**USEFS_ICS**](https://github.com/SRON-org/USEFS_ICS)：将使用 USEFS（通用日程计划表交换格式架构） 的 YAML、TOML 或 JSON 格式文件转换为标准 iCalendar (.ics) 格式的日历文件
 
 USEFS.Sharp（在建）：在 .NET Framework 和 C Language 上提供对使用 USEF 架构 格式的文件的进行访问、修改、增添、删除等高级管理功能。
 
