@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "USEFS Schema",
+  "description": "USEFS (The Universal Schedule Sheet Exchange Format Schema) 文件格式标准",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "description": "USEFS 文件版本号",
+      "enum": [1]
+    },
+    "items": {
+      "type": "array",
+      "description": "日程项列表",
+      "items": {
+        "$ref": "#/definitions/item"
+      }
+    },
+    "collections": {
+      "type": "array",
+      "description": "日程集合列表",
+      "items": {
+        "$ref": "#/definitions/collection"
+      }
+    }
+  },
+  "required": [
+    "version"
+  ],
+  "definitions": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "日程项名称"
+        },
+        "short_name": {
+          "type": "string",
+          "description": "日程项简称 (可选)"
+        },
+        "from_date": {
+          "type": "string",
+          "description": "开始日期，ISO 8601 格式 (YYYY-MM-DD)",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "from_time": {
+          "type": "string",
+          "description": "开始时间，HH:MM 格式",
+          "pattern": "^\\d{2}:\\d{2}$"
+        },
+        "duration": {
+          "type": "string",
+          "description": "持续时间 (e.g., 2h, 30m) (可选)",
+          "pattern": "^\\d+(\\.\\d+)?[smhd]$"
+        },
+        "enable": {
+          "type": "string",
+          "description": "启用规则 (e.g., 'every_day', 'Monday')"
+        },
+        "cycle": {
+          "type": "string",
+          "description": "循环规则 (e.g., 'every', 'odd')"
+        },
+        "importance": {
+          "type": "integer",
+          "description": "优先级"
+        },
+        "note": {
+          "type": "string",
+          "description": "日程项备注 (可选)"
+        },
+        "tags": {
+          "type": "array",
+          "description": "日程项标签 (可选)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "type": "object",
+          "description": "自定义属性 (可选)"
+        }
+      },
+      "required": [
+        "name",
+        "from_date",
+        "from_time",
+        "enable",
+        "cycle",
+        "importance"
+      ]
+    },
+    "collection": {
+      "type": "object",
+      "properties": {
+        "collection_name": {
+          "type": "string",
+          "description": "集合名称"
+        },
+        "enable": {
+          "type": "string",
+          "description": "集合启用规则"
+        },
+        "cycle": {
+          "type": "string",
+          "description": "集合循环规则"
+        },
+        "importance": {
+          "type": "integer",
+          "description": "集合优先级"
+        },
+        "content": {
+          "type": "array",
+          "description": "集合中的日程项列表",
+          "items": {
+            "$ref": "#/definitions/collectionItem"
+          }
+        }
+      },
+      "required": [
+        "collection_name",
+        "enable",
+        "cycle",
+        "importance",
+        "content"
+      ]
+    },
+    "collectionItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "日程项名称"
+        },
+        "short_name": {
+          "type": "string",
+          "description": "日程项简称 (可选)"
+        },
+        "from_time": {
+          "type": "string",
+          "description": "开始时间，HH:MM 格式",
+          "pattern": "^\\d{2}:\\d{2}$"
+        },
+        "duration": {
+          "type": "string",
+          "description": "持续时间 (e.g., 2h, 30m) (可选)",
+          "pattern": "^\\d+(\\.\\d+)?[smhd]$"
+        },
+        "note": {
+          "type": "string",
+          "description": "日程项备注 (可选)"
+        },
+        "tags": {
+          "type": "array",
+          "description": "日程项标签 (可选)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "type": "object",
+          "description": "自定义属性 (可选)"
+        }
+      },
+      "required": [
+        "name",
+        "from_time",
+        "duration"
+      ]
+    }
+  }
+}
